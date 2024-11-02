@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evacuation Route Finder</title>
+    <!-- Add Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Add Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="sidebar">
+        <div class="logo-container">
+          <i class="fas fa-route"></i>
+          <h1>Evacuation Route Finder</h1>
+        </div>
+
+        <div class="search-container">
+          <input
+            type="text"
+            id="city-search"
+            placeholder="Search for a city..."
+          />
+          <div id="city-list" class="city-list"></div>
+        </div>
+
+        <div class="controls">
+          <button id="set-start" class="btn btn-primary">
+            <i class="fas fa-map-marker-alt"></i>
+            Set Start Point
+          </button>
+          <button id="set-end" class="btn btn-primary">
+            <i class="fas fa-flag-checkered"></i>
+            Set End Point
+          </button>
+          <button
+            id="find-route"
+            class="btn btn-primary"
+            type="button"
+            disabled
+          >
+            <i class="fas fa-route"></i> Find Route
+          </button>
+          <button id="reset" class="btn btn-secondary">
+            <i class="fas fa-redo"></i>
+            Reset
+          </button>
+        </div>
+
+        <div class="route-info">
+          <h3><i class="fas fa-info-circle"></i> Route Information</h3>
+          <div class="info-content">
+            <p>
+              <i class="fas fa-road"></i> <strong>Distance:</strong>
+              <span id="route-distance">-</span>
+            </p>
+            <p>
+              <i class="fas fa-clock"></i> <strong>Estimated Time:</strong>
+              <span id="route-time">-</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="coordinates-display">
+          <div class="coordinate-box">
+            <label><i class="fas fa-map-marker-alt"></i> Start Point</label>
+            <p id="start-coordinates">Not set</p>
+          </div>
+          <div class="coordinate-box">
+            <label><i class="fas fa-flag-checkered"></i> End Point</label>
+            <p id="end-coordinates">Not set</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div id="map"></div>
+        <div id="toast-container" class="toast-container"></div>
+        <div id="loading-overlay" class="loading-overlay hidden">
+          <div class="spinner"></div>
+          <p>Finding the best route...</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Modal Title</h2>
+        <p>Modal message goes here.</p>
+        <div class="modal-buttons">
+          <button class="btn btn-primary">Confirm</button>
+          <button class="btn btn-secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
